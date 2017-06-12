@@ -21,9 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+
 
 app.use(express.static(__dirname+'/public'));
 
@@ -55,6 +53,10 @@ app.get('/bad', (req, res) => {
     reason: 'Bad example',
     solution: 'go to root'
   });
+});
+
+app.use((req, res, next) => {
+  res.render('maintenance.hbs');
 });
 
 app.listen(port, () => {
